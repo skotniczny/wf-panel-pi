@@ -228,7 +228,7 @@ static void handle_toplevel_done (void *data, HANDLE_PTR handle)
             if (item->title && item->app_id && !item->parent)
             {
                 if (!item->btn) create_button (wl, item);
-                else update_item_width (wl, item);
+                update_item_width (wl, item);
                 gtk_widget_set_tooltip_text (item->btn, item->title);
                 update_button_state (item);
             }
