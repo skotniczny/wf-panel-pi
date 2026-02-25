@@ -180,6 +180,30 @@ static void handle_toplevel_state (void *data, HANDLE_PTR handle, struct wl_arra
     }
 }
 
+static void handle_toplevel_done (void *data, HANDLE_PTR handle)
+{
+    WinlistPlugin *wl = (WinlistPlugin*) data;
+    GList *list;
+
+    list = wl->windows;
+    while (list)
+    {
+        WindowItem *item = (WindowItem *) list->data;
+        if (item->handle == (void *) handle)
+        {
+            if (item->title && item->app_id && !item->parent)
+            {
+                if (!item->btn) create_button (wl, item);
+                update_item_width (wl, item);
+                gtk_widget_set_tooltip_text (item->btn, item->title);
+                update_button_state (item);
+            }
+            break;
+        }
+        list = g_list_next (list);
+    }
+}
+
 static void handle_toplevel_closed (void *data, HANDLE_PTR handle)
 {
     WinlistPlugin *wl = (WinlistPlugin*) data;
@@ -212,30 +236,6 @@ static void handle_toplevel_closed (void *data, HANDLE_PTR handle)
     }
 
     g_idle_add (idle_resize, wl);
-}
-
-static void handle_toplevel_done (void *data, HANDLE_PTR handle)
-{
-    WinlistPlugin *wl = (WinlistPlugin*) data;
-    GList *list;
-
-    list = wl->windows;
-    while (list)
-    {
-        WindowItem *item = (WindowItem *) list->data;
-        if (item->handle == (void *) handle)
-        {
-            if (item->title && item->app_id && !item->parent)
-            {
-                if (!item->btn) create_button (wl, item);
-                update_item_width (wl, item);
-                gtk_widget_set_tooltip_text (item->btn, item->title);
-                update_button_state (item);
-            }
-            break;
-        }
-        list = g_list_next (list);
-    }
 }
 
 static void handle_toplevel_output_enter (void *, HANDLE_PTR, struct wl_output *)
