@@ -104,8 +104,6 @@ static void handle_toplevel_title (void *data, HANDLE_PTR handle, const char *ti
             {
                 g_free (item->title);
                 item->title = g_strdup (title);
-                update_item_width (wl, item);
-                gtk_widget_set_tooltip_text (item->btn, item->title);
             }
             break;
         }
@@ -180,14 +178,6 @@ static void handle_toplevel_state (void *data, HANDLE_PTR handle, struct wl_arra
         }
         list = g_list_next (list);
     }
-
-    list = wl->windows;
-    while (list)
-    {
-        item = (WindowItem *) list->data;
-        if (item->btn) update_button_state (item);
-        list = g_list_next (list);
-    }
 }
 
 static void handle_toplevel_closed (void *data, HANDLE_PTR handle)
@@ -235,9 +225,11 @@ static void handle_toplevel_done (void *data, HANDLE_PTR handle)
         WindowItem *item = (WindowItem *) list->data;
         if (item->handle == (void *) handle)
         {
-            if (!item->btn && item->title && item->app_id && !item->parent)
+            if (item->title && item->app_id && !item->parent)
             {
-                create_button (wl, item);
+                if (!item->btn) create_button (wl, item);
+                else update_item_width (wl, item);
+                gtk_widget_set_tooltip_text (item->btn, item->title);
                 update_button_state (item);
             }
             break;
@@ -625,8 +617,6 @@ static void set_icon_and_title (WinlistPlugin *wl, WindowItem *item)
     gtk_widget_show_all (item->btn);
 
     g_free (str);
-
-    if (item->title) gtk_widget_set_tooltip_text (item->btn, item->title);
 }
 
 static void update_item_width (WinlistPlugin *wl, WindowItem *item)
