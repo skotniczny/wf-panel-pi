@@ -79,9 +79,7 @@ gboolean is_pi_var;
 static GtkWindow *panel, *popwindow;
 static GtkWidget *clicksink;
 static GtkLayerShellLayer orig_layer;
-static struct libinput *li;
 static guint idle_id;
-static double tx, ty;
 static int px, py, mw, mh, orient;
 
 /*----------------------------------------------------------------------------*/
@@ -106,7 +104,7 @@ gboolean panel_at_bottom (GtkWidget *btn)
     return gtk_layer_get_anchor (panel, GTK_LAYER_SHELL_EDGE_BOTTOM);
 }
 
-int get_icon_size (GtkWidget *widget)
+int get_icon_size (GtkWidget *)
 {
     return widget_icon_size;
 }
@@ -542,7 +540,7 @@ static void popup_hidden (GtkWidget *popup, kb_menu_t *data)
     g_free (data);
 }
 
-static gboolean handle_clickaway (GtkWidget *, GdkEventButton *, gpointer user_data)
+static gboolean handle_clickaway (GtkWidget *, GdkEventButton *, gpointer)
 {
     close_popup ();
     return FALSE;
@@ -553,6 +551,7 @@ void popup_window_at_button (GtkWidget *window, GtkWidget *button)
     GdkDisplay *disp;
     GdkMonitor *mon;
     GdkRectangle rect;
+    GtkCssProvider *prov;
     int i, pw, ph, wiz;
     gboolean bottom;
     FILE *fp;
@@ -565,6 +564,13 @@ void popup_window_at_button (GtkWidget *window, GtkWidget *button)
     gtk_layer_set_anchor (GTK_WINDOW (clicksink), GTK_LAYER_SHELL_EDGE_TOP, TRUE);
     gtk_layer_set_anchor (GTK_WINDOW (clicksink), GTK_LAYER_SHELL_EDGE_BOTTOM, TRUE);
     gtk_widget_set_name (clicksink, "clicksink");
+
+    prov = gtk_css_provider_new ();
+    gtk_css_provider_load_from_data (prov, "#clicksink { background-color: transparent;}", -1, NULL);
+    gtk_style_context_add_provider_for_screen (gdk_screen_get_default (),
+        GTK_STYLE_PROVIDER (prov), GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+    g_object_unref (prov);
+
     gtk_widget_show (clicksink);
     gtk_window_present (GTK_WINDOW (clicksink));
     gtk_widget_set_events (clicksink, gtk_widget_get_events (clicksink) | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK);
