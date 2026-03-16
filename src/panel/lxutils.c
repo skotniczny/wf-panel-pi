@@ -79,7 +79,6 @@ gboolean is_pi_var;
 static GtkWindow *panel, *popwindow;
 static GtkWidget *clicksink;
 static GtkLayerShellLayer orig_layer;
-static guint idle_id;
 static int px, py, mw, mh, orient;
 
 /*----------------------------------------------------------------------------*/
@@ -664,8 +663,6 @@ void close_popup (void)
 {
     if (popwindow) gtk_widget_destroy (GTK_WIDGET (popwindow));
     popwindow = NULL;
-    if (idle_id) g_source_remove (idle_id);
-    idle_id = 0;
 }
 
 /*----------------------------------------------------------------------------*/
