@@ -576,7 +576,6 @@ void popup_window_at_button (GtkWidget *window, GtkWidget *button)
 
     gtk_widget_show (clicksink);
     gtk_window_present (GTK_WINDOW (clicksink));
-    gtk_widget_set_events (clicksink, gtk_widget_get_events (clicksink) | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK);
     g_signal_connect (clicksink, "button-release-event", G_CALLBACK (handle_clickaway), NULL);
 
     close_popup ();
