@@ -557,16 +557,19 @@ void popup_window_at_button (GtkWidget *window, GtkWidget *button)
     FILE *fp;
     char *cmd, *mname;
 
+    mon = gtk_layer_get_monitor (panel);
+
     clicksink = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     gtk_layer_init_for_window (GTK_WINDOW (clicksink));
     gtk_layer_set_anchor (GTK_WINDOW (clicksink), GTK_LAYER_SHELL_EDGE_LEFT, TRUE);
     gtk_layer_set_anchor (GTK_WINDOW (clicksink), GTK_LAYER_SHELL_EDGE_RIGHT, TRUE);
     gtk_layer_set_anchor (GTK_WINDOW (clicksink), GTK_LAYER_SHELL_EDGE_TOP, TRUE);
     gtk_layer_set_anchor (GTK_WINDOW (clicksink), GTK_LAYER_SHELL_EDGE_BOTTOM, TRUE);
+    gtk_layer_set_monitor (GTK_WINDOW (clicksink), mon);
     gtk_widget_set_name (clicksink, "clicksink");
 
     prov = gtk_css_provider_new ();
-    gtk_css_provider_load_from_data (prov, "#clicksink { background-color: transparent;}", -1, NULL);
+    gtk_css_provider_load_from_data (prov, "#clicksink { background-color: transparent; }", -1, NULL);
     gtk_style_context_add_provider_for_screen (gdk_screen_get_default (),
         GTK_STYLE_PROVIDER (prov), GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
     g_object_unref (prov);
@@ -603,7 +606,6 @@ void popup_window_at_button (GtkWidget *window, GtkWidget *button)
     if (rect.x <= px) px = rect.x;
 
     // get the dimensions of the monitor - correct the y-coord of the plugin if at bottom
-    mon = gtk_layer_get_monitor (panel);
     gdk_monitor_get_geometry (mon, &rect);
     mh = rect.height;
     mw = rect.width;
