@@ -557,6 +557,7 @@ void popup_window_at_button (GtkWidget *window, GtkWidget *button)
     FILE *fp;
     char *cmd, *mname;
 
+    panel = find_panel (button);
     mon = gtk_layer_get_monitor (panel);
 
     clicksink = gtk_window_new (GTK_WINDOW_TOPLEVEL);
