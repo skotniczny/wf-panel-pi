@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-14 21:03+0200\n"
+"POT-Creation-Date: 2026-04-22 12:38+0200\n"
 "PO-Revision-Date: 2026-04-15 08:44+0200\n"
 "Last-Translator: Skotniczny <skotniczny@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -82,6 +82,15 @@ msgstr "Powiadomienia…"
 msgid "Taskbar Preferences..."
 msgstr "Ustawienia paska zadań…"
 
+#: ../src/widgets/launchers/launchers.c:46
+msgid "Icon spacing"
+msgstr ""
+
+#: ../src/widgets/launchers/launchers.c:88
+#, fuzzy
+msgid "Remove from Launcher"
+msgstr "Usuń z paska zadań"
+
 #: ../src/widgets/notify/notify.cpp:5
 msgid "Show notifications"
 msgstr "Pokaż powiadomienia"
@@ -118,6 +127,49 @@ msgstr "Środkowy przycisk aktywuje menu"
 msgid "System Tray"
 msgstr "Zasobnik systemowy"
 
+#: ../src/widgets/window-list/winlist.c:50
+msgid "Maximum width of task button"
+msgstr ""
+
+#: ../src/widgets/window-list/winlist.c:51
+#, fuzzy
+msgid "Show only icons"
+msgstr "Pokaż powiadomienia"
+
+#: ../src/widgets/window-list/winlist.c:52
+msgid "Item spacing"
+msgstr ""
+
+#: ../src/widgets/window-list/winlist.c:667
+msgid "Unminimise"
+msgstr ""
+
+#: ../src/widgets/window-list/winlist.c:672
+msgid "Minimise"
+msgstr ""
+
+#: ../src/widgets/window-list/winlist.c:679
+msgid "Unmaximise"
+msgstr ""
+
+#: ../src/widgets/window-list/winlist.c:684
+msgid "Maximise"
+msgstr ""
+
+#: ../src/widgets/window-list/winlist.c:689
+#, fuzzy
+msgid "Close"
+msgstr "Za_mknij"
+
+#. ----------------------------------------------------------------------------
+#. Typedefs and macros
+#. ----------------------------------------------------------------------------
+#: ../src/widgets/window-list/winlist.h:35
+msgid "Window List"
+msgstr ""
+
+#. End of file
+#. ----------------------------------------------------------------------------
 #: ../data/config.ui.h:1
 msgid "Add / Remove Plugins"
 msgstr "Dodaj / usuń wtyczki"
@@ -169,7 +221,3 @@ msgstr "Konfiguruj…"
 #: ../data/config.ui.h:13
 msgid "Configure selected plugin"
 msgstr "Konfiguruj wybraną wtyczkę"
-
-#, fuzzy
-#~ msgid "Close"
-#~ msgstr "Za_mknij"

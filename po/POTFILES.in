@@ -18,6 +18,7 @@ src/panel/spacer.cpp
 src/panel/wf-autohide-window.cpp
 src/panel/wf-popover.cpp
 src/panel/wf-shell-app.cpp
+src/widgets/launchers/launchers.c
 src/widgets/launchers/launchers.cpp
 src/widgets/launchers/launchers.hpp
 src/widgets/notify/notify.cpp
@@ -30,4 +31,6 @@ src/widgets/tray/tray.cpp
 src/widgets/tray/tray.hpp
 src/widgets/tray/watcher.cpp
 src/widgets/tray/watcher.hpp
+src/widgets/window-list/winlist.c
+src/widgets/window-list/winlist.h
 [type: gettext/glade] data/config.ui
