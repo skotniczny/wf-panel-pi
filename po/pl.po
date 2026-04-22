@@ -87,7 +87,6 @@ msgid "Icon spacing"
 msgstr "Odstęp między ikonami"
 
 #: ../src/widgets/launchers/launchers.c:88
-#, fuzzy
 msgid "Remove from Launcher"
 msgstr "Usuń z paska zadań"
 
@@ -132,7 +131,6 @@ msgid "Maximum width of task button"
 msgstr "Maksymalna szerokość przycisku okna"
 
 #: ../src/widgets/window-list/winlist.c:51
-#, fuzzy
 msgid "Show only icons"
 msgstr "Pokaż tylko ikony"
 
@@ -157,9 +155,8 @@ msgid "Maximise"
 msgstr "Maksymalizuj"
 
 #: ../src/widgets/window-list/winlist.c:689
-#, fuzzy
 msgid "Close"
-msgstr "Za_mknij"
+msgstr "Zamknij"
 
 #. ----------------------------------------------------------------------------
 #. Typedefs and macros
