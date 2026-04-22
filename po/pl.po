@@ -84,7 +84,7 @@ msgstr "Ustawienia paska zadań…"
 
 #: ../src/widgets/launchers/launchers.c:46
 msgid "Icon spacing"
-msgstr ""
+msgstr "Odstęp między ikonami"
 
 #: ../src/widgets/launchers/launchers.c:88
 #, fuzzy
@@ -129,32 +129,32 @@ msgstr "Zasobnik systemowy"
 
 #: ../src/widgets/window-list/winlist.c:50
 msgid "Maximum width of task button"
-msgstr ""
+msgstr "Maksymalna szerokość przycisku okna"
 
 #: ../src/widgets/window-list/winlist.c:51
 #, fuzzy
 msgid "Show only icons"
-msgstr "Pokaż powiadomienia"
+msgstr "Pokaż tylko ikony"
 
 #: ../src/widgets/window-list/winlist.c:52
 msgid "Item spacing"
-msgstr ""
+msgstr "Odstęp między elementami"
 
 #: ../src/widgets/window-list/winlist.c:667
 msgid "Unminimise"
-msgstr ""
+msgstr "Przywróć"
 
 #: ../src/widgets/window-list/winlist.c:672
 msgid "Minimise"
-msgstr ""
+msgstr "Minimalizuj"
 
 #: ../src/widgets/window-list/winlist.c:679
 msgid "Unmaximise"
-msgstr ""
+msgstr "Przywróć rozmiar"
 
 #: ../src/widgets/window-list/winlist.c:684
 msgid "Maximise"
-msgstr ""
+msgstr "Maksymalizuj"
 
 #: ../src/widgets/window-list/winlist.c:689
 #, fuzzy
@@ -166,7 +166,7 @@ msgstr "Za_mknij"
 #. ----------------------------------------------------------------------------
 #: ../src/widgets/window-list/winlist.h:35
 msgid "Window List"
-msgstr ""
+msgstr "Lista okien"
 
 #. End of file
 #. ----------------------------------------------------------------------------
